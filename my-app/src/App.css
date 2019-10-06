@@ -1,0 +1,103 @@
+.darkBackground {
+  background-color: #212121;
+  height: 100vh;
+  color: #FFF6D5;
+}
+
+body {
+  background-color: #212121 !important;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.centerContent {
+  margin: 0 auto ;
+  text-align: center;
+}
+
+.App-header {
+  background-color: #4cd137;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.todoCard {
+  width : 50%;
+  margin: 2% auto 2%;
+  background-color: #424242 !important;
+  color: #FFF6D5 !important;
+}
+
+.logoutContainer {
+  float: right;
+  width: 85%;
+}
+
+.logoutBtn {
+  float: right;
+}
+
+.todoArea {
+  overflow: auto;
+  height: 80vh;
+  margin-top: 20px;
+  background:  #333333 !important;
+}
+
+.appBar {
+  background-color: #1289A7 !important;
+}
+
+.cardText{
+  color: #FFF !important;
+}
+
+.addNewTaskBtn {
+  background-color: #1289A7 !important;
+  float: right;
+  position: fixed !important;
+  top: 80%;
+  right: 20%;
+}
+
+.addNewFormContainer {
+  background: #f7f1e3;
+  color: #212121 !important;
+  height: 50%;
+  width: 50%;
+  margin: 10% auto;
+  padding: 20px;
+}
+
+.accentColor {
+  background-color: #1289A7 !important;
+}
+
+.textField{
+  background-color: #d1ccc0 !important;
+}
+
+.paperContainer{
+  background-color: #f7f1e3;
+  color: #212121 !important;
+  height: 50%;
+  width: 100%;
+  margin-top: 30%;
+  /* position: absolute; */
+  padding: 20px;
+}
