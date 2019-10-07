@@ -4,14 +4,14 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
+import FormControlLabel from '@material-ui/core/FormControlLabel'; // again imports without use
+import Checkbox from '@material-ui/core/Checkbox'; // again imports without use.
+import Link from '@material-ui/core/Link'; // againt imports without use
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
+import Box from '@material-ui/core/Box'; // again imports without use.
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles'; // again imports without use.
 import Container from '@material-ui/core/Container';
 import { Redirect } from 'react-router-dom';
 
@@ -32,6 +32,9 @@ class Signup extends React.Component {
 
     }
 
+    /**
+     * Same mistake of the login.js component.
+     */
     componentDidMount = () => {
 
 
@@ -40,6 +43,10 @@ class Signup extends React.Component {
     }
 
     register = () => {
+        /**
+         * Why you're destructing the userName property from state if you're not
+         * using it?
+         */
         let { userName, password, email } = this.state
         fetch('https://engine-staging.viame.ae/assessment/users', {
             method: 'POST',
@@ -53,9 +60,21 @@ class Signup extends React.Component {
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
             }
+            /**
+             * Why you're using ASYNC on response?!
+             * The fetch native function is already based on promise...
+             */
         }).then(async response => {
+            /**
+             * Another bad pratice, left consoles in the system.
+             * This is horrible and raises a lot browser memory.
+             */
             console.log("check", response);
             let resJson = await response.json()
+            /**
+             * This is completly WRONG, 500 isn't about user exists, is 
+             * INTERNAL SERVER ERROR, happens when the backend broken...
+             */
             if (response.status == 500) {
                 toast.error("user already exist");
             }
@@ -80,7 +99,10 @@ class Signup extends React.Component {
             [e.target.name]: e.target.value
 
         }, () => {
-            
+            /**
+             * You created a callback function empty,
+             * what's the reason for that?!
+             */
         })
     }
 

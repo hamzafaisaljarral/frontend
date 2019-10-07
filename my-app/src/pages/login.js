@@ -3,11 +3,11 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel'; // why this is here?
+import Checkbox from '@material-ui/core/Checkbox'; // why this is here?
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
+import Box from '@material-ui/core/Box'; // why this is here?
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -16,6 +16,9 @@ import { Redirect } from 'react-router-dom';
 import { toast } from 'react-toastify'
 
 
+/**
+ * You declared a constant without using it.
+ */
 const useStyles = makeStyles(theme => ({
     '@global': {
       body: {
@@ -57,6 +60,10 @@ class Login extends React.Component {
 
     }
 
+    /**
+     * WHY YOU LEFT THIS HERE? If you aren't using it why you declare it?
+     * Other thing, why you use arrow function?!
+     */
     componentDidMount = () => {
 
 
@@ -79,6 +86,10 @@ class Login extends React.Component {
             }
         }).then(async response => {
 
+            /**
+             * Another bad pratice, left consoles in the system.
+             * This is horrible and raises a lot browser memory.
+             */
             console.log("check", response);
 
 
@@ -97,7 +108,10 @@ class Login extends React.Component {
             }
 
 
-
+            /**
+             * Another bad pratice, left consoles in the system.
+             * This is horrible and raises a lot browser memory.
+             */
             console.log("ff", resJson);
         }).catch(error => {
             toast.error("user already exist");
@@ -112,6 +126,10 @@ class Login extends React.Component {
             [e.target.name]: e.target.value
 
         }, () => {
+            /**
+             * Another bad pratice, left consoles in the system.
+             * This is horrible and raises a lot browser memory.
+             */
             console.log("stgate: ", this.state)
         })
     }

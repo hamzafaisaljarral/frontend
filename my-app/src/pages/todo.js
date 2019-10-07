@@ -9,7 +9,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import todoActions from '../actions/todoActions'
+import todoActions from '../actions/todoActions' // another component imported without use
 
 
 class Todo extends React.Component {
@@ -25,6 +25,10 @@ class Todo extends React.Component {
         }
     }
 
+    /**
+     * Why you declared the e property in arrow function if you aren't using it?
+     * It should be () => not e =>
+     */
     addTask = e => {
 
         let { tasks, title, description, state } = this.state;
@@ -46,6 +50,10 @@ class Todo extends React.Component {
         }).then(async response => {
 
             let resJson = await response.json()
+            /**
+             * Another bad pratice, left consoles in the system.
+             * This is horrible and raises a lot browser memory.
+             */
             console.log("check", resJson);
             tasks.push({ _id: resJson._id, title: title, description: description, status: state })
             this.setState({
@@ -54,7 +62,9 @@ class Todo extends React.Component {
                 description: '',
                 isAddNewFormOpen : false
             }, () => {
-                
+                /**
+                 * Again a callback function declared without use.
+                 */
             })
         })
 
@@ -73,6 +83,9 @@ class Todo extends React.Component {
 
         }, () => {
             
+            /**
+             * Again a callback function declared without use.
+             */
         })
     }
 
@@ -83,6 +96,10 @@ class Todo extends React.Component {
         console.log("Task: ", task)
         let index = tasks.findIndex(item => item._id === task._id)
         if (index == '-1') {
+
+            /**
+             * Again a console left in the application.
+             */
             console.log('notfound')
         }
         else {
@@ -111,6 +128,10 @@ class Todo extends React.Component {
 
                 }
                 else {
+
+                    /**
+                     * Again a console left in the application.
+                     */
                     console.log("check json", resJson.status);
                     //tasks.push({ _id: resJson._id, title: title, description: description, state: state })
                     this.setState({
@@ -118,6 +139,10 @@ class Todo extends React.Component {
                     })
                 }
             })
+
+            /**
+             * Again a console left in the application.
+             */
             console.log("log", tasks)
         }
     }
@@ -173,6 +198,10 @@ class Todo extends React.Component {
         }).then(async response => {
 
             let resJson = await response.json()
+
+            /**
+             * Again a console left in the application.
+             */
             console.log("delete response", resJson);
             if (resJson) {
                 tasks.splice(tasks.indexOf(task), 1);
@@ -201,6 +230,9 @@ class Todo extends React.Component {
     }
 
     renderAddNewForm = () => {
+        /**
+         * Why you get this property if you aren't using it?
+         */
         let { isAddNewFormOpen } = this.state
         return (
             <div>
